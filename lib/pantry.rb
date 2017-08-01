@@ -46,11 +46,10 @@ attr_reader :pantry_stock,
     recipes_possible = []
     @cookbook.each do |recipe|
       binding.pry
-        if pair_present?(@pantry_stock, recipe.ingredients.keys, recipe.ingredients.values)
+        if pair_present?(@pantry_stock, recipe.ingredients.keys.join(""), recipe.ingredients.valuesjoin("").to_i)
           recipes_possible << recipe.name
-          #recipes.ingredients.keys/values returns an array...
+          #recipes.ingredients.keys/values returns an array...need it to be a string and integer
           #@pantry_stock.keys.include?(recipe.ingredients.keys)
-        #pair_present?(h,'a',1)
         end
       end
     recipes_possible
@@ -59,7 +58,7 @@ attr_reader :pantry_stock,
   # def ingredients_included_in_recipes
   #   @pantry_stock.each do |key, value|
   #     recipe.ingredients[key] == value
-  #     #thinking of
+  #     #thinking of adding another method to iterate through the      recipe and ingredients separately
   # end
 
   # What can i make?
