@@ -21,4 +21,20 @@ attr_reader :pantry_stock
     end
   end
 
+  def convert_units(recipe)
+    recipe.ingredients.each_value do |ingredient|
+      if ingredient < 1
+        binding.pry
+        ingredient[:quantity] = ingredient * 1000
+        ingredient[:units] = "Milli-Units"
+      elsif ingredient > 100
+        ingredient[:quantity] = ingredient / 100
+        ingredient[:units] = "Centi-Units"
+      else
+        ingredient[:quantity] = ingredient
+        ingredient[:units] = "Universal-Units"
+      end
+    end
+  end
+
 end

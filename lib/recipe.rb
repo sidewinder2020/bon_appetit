@@ -17,9 +17,5 @@ class Recipe
   def amount_required(ingredient_name)
     @ingredients[ingredient_name]
   end
-end
 
-# r = Recipe.new("Spicy Cheese Pizza")
-# r.add_ingredient("Cayenne Pepper", 0.025)
-# r.add_ingredient("Cheese", 75)
-# r.add_ingredient("Flour", 500)
+end
