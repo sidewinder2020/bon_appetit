@@ -43,8 +43,14 @@ attr_reader :pantry_stock,
   end
 
   def what_can_i_make
-    @pantry_stock
-    binding.pry
+    recipes_possible = []
+    @cookbook.each do |recipe|
+      binding.pry
+      if @pantry_stock.include?(recipe.ingredients)
+        recipes_possible << recipe.name
+      end
+    end
+    recipes_possible
   end
 
   # What can i make?
