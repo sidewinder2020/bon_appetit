@@ -49,4 +49,23 @@ class PantryTest < Minitest::Test
     assert_instance_of Hash, @pantry.convert_units(r)
   end
 
+  def test_you_can_add_recipes_to_cookbook
+    r1 = Recipe.new("Cheese Pizza")
+    r1.add_ingredient("Cheese", 20)
+    r1.add_ingredient("Flour", 20)
+
+    r2 = Recipe.new("Brine Shot")
+    r2.add_ingredient("Brine", 10)
+
+    r3 = Recipe.new("Peanuts")
+    r3.add_ingredient("Raw nuts", 10)
+    r3.add_ingredient("Salt", 10)
+
+    @pantry.add_to_cookbook(r1)
+    @pantry.add_to_cookbook(r2)
+    @pantry.add_to_cookbook(r3)
+
+    assert_equal 3, @pantry.cookbook.length
+  end
+
 end

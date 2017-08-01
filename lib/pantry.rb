@@ -1,8 +1,10 @@
 class Pantry
-attr_reader :pantry_stock
+attr_reader :pantry_stock,
+            :cookbook
 
   def initialize
     @pantry_stock = {}
+    @cookbook = []
   end
 
   def stock_check(food_name)
@@ -33,8 +35,11 @@ attr_reader :pantry_stock
         recipe_pantry_hash[food] = Hash.new.merge({:quantity => ingredient, :units => "Universal-Units"})
       end
     end
-    binding.pry
     recipe_pantry_hash
+  end
+
+  def add_to_cookbook(recipe)
+    @cookbook << recipe
   end
 
 end
