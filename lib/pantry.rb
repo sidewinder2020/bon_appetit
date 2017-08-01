@@ -46,20 +46,21 @@ attr_reader :pantry_stock,
     recipes_possible = []
     @cookbook.each do |recipe|
       binding.pry
-      if @pantry_stock.keys.include?(recipe.ingredients.keys)
-        recipes_possible << recipe.name
+        if pair_present?(@pantry_stock, recipe.ingredients.keys, recipe.ingredients.values)
+          recipes_possible << recipe.name
+          #recipes.ingredients.keys/values returns an array...
+          #@pantry_stock.keys.include?(recipe.ingredients.keys)
         #pair_present?(h,'a',1)
-        #pair_present?(@pantry_stock, recipe.ingredients.keys, recipe.ingredients.values)
+        end
       end
-    end
     recipes_possible
   end
 
-  def ingredients_included_in_recipes
-    @pantry_stock.each do |key, value|
-      recipe.ingredients[key] == value
-      #thinking of
-  end
+  # def ingredients_included_in_recipes
+  #   @pantry_stock.each do |key, value|
+  #     recipe.ingredients[key] == value
+  #     #thinking of
+  # end
 
   # What can i make?
     #pantry.what_can_i_make # => ["Brine Shot", "Peanuts"]
