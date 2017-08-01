@@ -25,15 +25,16 @@ attr_reader :pantry_stock
     recipe_pantry_hash = Hash.new
     recipe.ingredients.each do |food, ingredient|
       if ingredient < 1
-        recipe_pantry_hash[food] = Hash.new(:quantity => ingredient * 1000,
-        :units => "Milli-Units")
+        recipe_pantry_hash[food] = Hash.new.merge({:quantity => ingredient * 1000,
+        :units => "Milli-Units"})
         binding.pry
       elsif ingredient > 100
-        recipe_pantry_hash[food] = Hash.new(:quantity => ingredient / 100, :units => "Centi-Units")
+        recipe_pantry_hash[food] = Hash.new.merge({:quantity => ingredient / 100, :units => "Centi-Units"})
       else
-        recipe_pantry_hash[food] = Hash.new(:quantity => ingredient, :units => "Universal-Units")
+        recipe_pantry_hash[food] = Hash.new.merge({:quantity => ingredient, :units => "Universal-Units"})
       end
     end
+    recipe_pantry_hash
   end
 
 end
