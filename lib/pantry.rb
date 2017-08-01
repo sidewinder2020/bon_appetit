@@ -42,4 +42,14 @@ attr_reader :pantry_stock,
     @cookbook << recipe
   end
 
+  def what_can_i_make
+    @pantry_stock
+    binding.pry
+  end
+
+  # What can i make?
+    #pantry.what_can_i_make # => ["Brine Shot", "Peanuts"]
+  # How many can i make?
+    #pantry.how_many_can_i_make # => {"Brine Shot" => 4, "Peanuts" => 2}
+
 end
