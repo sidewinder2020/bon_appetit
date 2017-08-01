@@ -46,7 +46,7 @@ attr_reader :pantry_stock,
     recipes_possible = []
     @cookbook.each do |recipe|
       binding.pry
-      if @pantry_stock.include?(recipe.ingredients)
+      if @pantry_stock[recipe.ingredients.keys] == recipe.ingredients.values
         recipes_possible << recipe.name
       end
     end

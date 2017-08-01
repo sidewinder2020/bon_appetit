@@ -80,8 +80,8 @@ class PantryTest < Minitest::Test
     r3.add_ingredient("Raw nuts", 10)
     r3.add_ingredient("Salt", 10)
 
-    @pantry.add_to_cookbook(r1)
     @pantry.add_to_cookbook(r2)
+    @pantry.add_to_cookbook(r1)
     @pantry.add_to_cookbook(r3)
 
     @pantry.restock("Cheese", 10)
