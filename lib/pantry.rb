@@ -22,11 +22,12 @@ attr_reader :pantry_stock
   end
 
   def convert_units(recipe)
+    recipe_pantry_hash = Hash.new
     recipe.ingredients.each_value do |ingredient|
       if ingredient < 1
         binding.pry
-        ingredient[:quantity] = ingredient * 1000
-        ingredient[:units] = "Milli-Units"
+        Hash.new(:quantity => ingredient * 1000,
+        :units => "Milli-Units")
       elsif ingredient > 100
         ingredient[:quantity] = ingredient / 100
         ingredient[:units] = "Centi-Units"
