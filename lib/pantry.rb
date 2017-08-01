@@ -49,6 +49,7 @@ attr_reader :pantry_stock,
         if pair_present?(@pantry_stock, recipe.ingredients.keys.join(""), recipe.ingredients.valuesjoin("").to_i)
           recipes_possible << recipe.name
           #recipes.ingredients.keys/values returns an array...need it to be a string and integer
+          #compare the key and value of each in the pantry stock hash to the recipe.ingredients hashes - see if the values are equal to or greater than
           #@pantry_stock.keys.include?(recipe.ingredients.keys)
         end
       end
