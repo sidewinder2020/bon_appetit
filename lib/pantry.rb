@@ -1,4 +1,5 @@
 class Pantry
+attr_reader :pantry_stock
 
   def initialize
     @pantry_stock = {}
@@ -13,18 +14,11 @@ class Pantry
   end
 
   def restock(food_name, amount)
-    @pantry_stock[food_name] = amount
+    if @pantry_stock[food_name] != nil
+      @pantry_stock[food_name] = @pantry_stock[food_name] + amount
+    else
+      @pantry_stock[food_name] = amount
+    end
   end
 
 end
-
-
-
-# pantry.stock_check("Cheese")
-# # => 0
-# pantry.restock("Cheese", 10)
-# pantry.stock_check("Cheese")
-# # => 10
-# pantry.restock("Cheese", 20)
-# pantry.stock_check("Cheese")
-# # => 30
